@@ -28,9 +28,25 @@
 import UIKit
 import QuartzCore
 
+/**
+ Use a petal like you use an activity indicator. It means it is useful to show that a task is in progress. A petal appears as a flower with each petals are etheir growing/shinking/rotating or stopped.
+
+ You control when a petal animates by calling the startAnimating and stopAnimating methods.
+ */
 @IBDesignable public final class Petal: UIView {
-  @IBInspectable public var segmentCount: UInt       = 15
+  /**
+   The petal count.
+   */
+  @IBInspectable public var petalCount: UInt         = 15
+
+  /**
+   The rotation duration in seconds.
+   */
   @IBInspectable public var rotationDuration: Double = 12
+
+  /**
+   The colors of the petals. They are displayed sequentially.
+   */
   @IBInspectable public var colors: [UIColor]        = [
     UIColor(red: 72/255, green: 178/255, blue: 197/255, alpha: 1),
     UIColor(red: 112/255, green: 184/255, blue: 197/255, alpha: 1),
@@ -43,19 +59,26 @@ import QuartzCore
     }
   }
 
-  @IBInspectable public var maxPistilRadiusRatio: CGFloat = 0.4
-
-  var petals: [CAShapeLayer]  = []
-  var pistils: [CAShapeLayer] = []
-
-  private(set) var animating: Bool = false
-
   public override func awakeFromNib() {
     super.awakeFromNib()
 
     setupLayers()
   }
 
+  // MARK: - Managing a Petal
+
+  /**
+  Flag to know whether the receiver is animating.
+
+  true if the receiver is animating, otherwise false.
+  */
+  public private(set) var animating: Bool = false
+
+  /**
+   Starts the animation of the petal.
+
+   When the progress indicator is animated, the petals grow, shrink and rotate to indicate indeterminate progress. The indicator is animated until stopAnimating is called.
+   */
   public func startAnimating() {
     guard !animating else {
       return
@@ -84,6 +107,11 @@ import QuartzCore
     prepareAnimations()
   }
 
+  /**
+   Stops the animation of the petal.
+
+   Call this method to stop the animation of the petal started with a call to startAnimating. When animating is stopped, the indicator is hidden.
+   */
   public func stopAnimating() {
     guard animating else {
       return
@@ -108,7 +136,7 @@ import QuartzCore
     animating = false
   }
 
-  // MARK: -
+  // MARK: - Animating Petals
 
   func prepareAnimations() {
     let beginTime = CACurrentMediaTime()
@@ -126,9 +154,9 @@ import QuartzCore
     }
 
     let morphingDuration = rotationDuration / 4
-    let morphingMod      = Double(segmentCount) / 4
+    let morphingMod      = Double(petalCount) / 4
 
-    for i in 0 ..< segmentCount {
+    for i in 0 ..< petalCount {
       let timeOffset = beginTime + (morphingDuration / morphingMod) * (Double(i) % morphingMod)
 
       let petalAnim    = PetalAnimation.animationWithDuration(morphingDuration, beginTime: beginTime, timeOffset: timeOffset)
@@ -147,10 +175,15 @@ import QuartzCore
     }
   }
 
+  // MARK: - Creating Petals
+
+  var petals: [CAShapeLayer]  = []
+  var pistils: [CAShapeLayer] = []
+
   func pathForPetalAt(index: UInt, radiusRatio: CGFloat, angleOffset: CGFloat = 0) -> CGPath {
     let center     = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-    let startAngle = angleOffset + CGFloat(M_PI * 2 / Double(segmentCount)) * CGFloat(index)
-    let endAngle   = angleOffset + CGFloat(M_PI * 2 / Double(segmentCount)) * CGFloat(index + 1)
+    let startAngle = angleOffset + CGFloat(M_PI * 2 / Double(petalCount)) * CGFloat(index)
+    let endAngle   = angleOffset + CGFloat(M_PI * 2 / Double(petalCount)) * CGFloat(index + 1)
 
     return petalPathAtCenter(center, radiusRatio: radiusRatio, startAngle: startAngle, endAngle: endAngle)
   }
@@ -179,7 +212,7 @@ import QuartzCore
     petals.removeAll()
     pistils.removeAll()
 
-    for i in 0 ..< segmentCount {
+    for i in 0 ..< petalCount {
       let petalLayer         = CAShapeLayer()
       petalLayer.fillColor   = colors[Int(i) % colors.count].CGColor
       petalLayer.strokeColor = colors[Int(i) % colors.count].CGColor
@@ -190,7 +223,7 @@ import QuartzCore
 
       petals.append(petalLayer)
       pistils.append(pistilLayer)
-
+      
       layer.addSublayer(petalLayer)
       layer.addSublayer(pistilLayer)
     }

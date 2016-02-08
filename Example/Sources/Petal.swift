@@ -31,7 +31,13 @@ import QuartzCore
 @IBDesignable public final class Petal: UIView {
   @IBInspectable public var segmentCount: UInt       = 15
   @IBInspectable public var rotationDuration: Double = 12
-  @IBInspectable public var colors: [UIColor]        = [] {
+  @IBInspectable public var colors: [UIColor]        = [
+    UIColor(red: 72/255, green: 178/255, blue: 197/255, alpha: 1),
+    UIColor(red: 112/255, green: 184/255, blue: 197/255, alpha: 1),
+    UIColor(red: 56/255, green: 111/255, blue: 121/255, alpha: 1),
+    UIColor(red: 197/255, green: 98/255, blue: 53/255, alpha: 1),
+    UIColor(red: 121/255, green: 86/255, blue: 56/255, alpha: 1)
+    ] {
     didSet {
       setupLayers()
     }
@@ -61,6 +67,7 @@ import QuartzCore
     scaleAnim.fromValue           = 0
     scaleAnim.toValue             = 1
     scaleAnim.duration            = 0.2
+    scaleAnim.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
     scaleAnim.fillMode            = kCAFillModeForwards
     scaleAnim.removedOnCompletion = false
 
@@ -92,6 +99,7 @@ import QuartzCore
     scaleAnim.fromValue           = 1
     scaleAnim.toValue             = 0
     scaleAnim.duration            = 0.2
+    scaleAnim.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
     scaleAnim.fillMode            = kCAFillModeForwards
     scaleAnim.removedOnCompletion = false
 
@@ -172,11 +180,13 @@ import QuartzCore
     pistils.removeAll()
 
     for i in 0 ..< segmentCount {
-      let petalLayer       = CAShapeLayer()
-      petalLayer.fillColor = colors[Int(i) % colors.count].CGColor
+      let petalLayer         = CAShapeLayer()
+      petalLayer.fillColor   = colors[Int(i) % colors.count].CGColor
+      petalLayer.strokeColor = colors[Int(i) % colors.count].CGColor
 
-      let pistilLayer       = CAShapeLayer()
-      pistilLayer.fillColor = colors[Int(i) % colors.count].CGColor
+      let pistilLayer         = CAShapeLayer()
+      pistilLayer.fillColor   = colors[Int(i) % colors.count].CGColor
+      pistilLayer.strokeColor = colors[Int(i) % colors.count].CGColor
 
       petals.append(petalLayer)
       pistils.append(pistilLayer)

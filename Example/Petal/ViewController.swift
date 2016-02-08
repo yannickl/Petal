@@ -14,8 +14,6 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    petal.colors = [UIColor.redColor(), UIColor.greenColor(), UIColor.blueColor()]
   }
 
   @IBAction func startAction(sender: AnyObject) {

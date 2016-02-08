@@ -1,0 +1,419 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CEF1904E1C67BF8000AA86EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1904D1C67BF8000AA86EA /* AppDelegate.swift */; };
+		CEF190501C67BF8000AA86EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1904F1C67BF8000AA86EA /* ViewController.swift */; };
+		CEF190531C67BF8000AA86EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF190511C67BF8000AA86EA /* Main.storyboard */; };
+		CEF190551C67BF8000AA86EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF190541C67BF8000AA86EA /* Assets.xcassets */; };
+		CEF190581C67BF8000AA86EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF190561C67BF8000AA86EA /* LaunchScreen.storyboard */; };
+		CEF190631C67BF8000AA86EA /* PetalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190621C67BF8000AA86EA /* PetalTests.swift */; };
+		CEF190711C67C0D400AA86EA /* Petal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190701C67C0D400AA86EA /* Petal.swift */; };
+		CEF190751C68E27D00AA86EA /* PetalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190741C68E27D00AA86EA /* PetalAnimation.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CEF1905F1C67BF8000AA86EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEF190421C67BF8000AA86EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEF190491C67BF8000AA86EA;
+			remoteInfo = Petal;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CEF1904A1C67BF8000AA86EA /* Petal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEF1904D1C67BF8000AA86EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CEF1904F1C67BF8000AA86EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CEF190521C67BF8000AA86EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CEF190541C67BF8000AA86EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CEF190571C67BF8000AA86EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CEF190591C67BF8000AA86EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEF1905E1C67BF8000AA86EA /* PetalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEF190621C67BF8000AA86EA /* PetalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetalTests.swift; sourceTree = "<group>"; };
+		CEF190641C67BF8000AA86EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEF190701C67C0D400AA86EA /* Petal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Petal.swift; sourceTree = "<group>"; };
+		CEF190741C68E27D00AA86EA /* PetalAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetalAnimation.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEF190471C67BF8000AA86EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEF1905B1C67BF8000AA86EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEF190411C67BF8000AA86EA = {
+			isa = PBXGroup;
+			children = (
+				CEF1906F1C67C0D400AA86EA /* Sources */,
+				CEF1904C1C67BF8000AA86EA /* Petal */,
+				CEF190611C67BF8000AA86EA /* PetalTests */,
+				CEF1904B1C67BF8000AA86EA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CEF1904B1C67BF8000AA86EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEF1904A1C67BF8000AA86EA /* Petal.app */,
+				CEF1905E1C67BF8000AA86EA /* PetalTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEF1904C1C67BF8000AA86EA /* Petal */ = {
+			isa = PBXGroup;
+			children = (
+				CEF1904D1C67BF8000AA86EA /* AppDelegate.swift */,
+				CEF1904F1C67BF8000AA86EA /* ViewController.swift */,
+				CEF190511C67BF8000AA86EA /* Main.storyboard */,
+				CEF190541C67BF8000AA86EA /* Assets.xcassets */,
+				CEF190561C67BF8000AA86EA /* LaunchScreen.storyboard */,
+				CEF190591C67BF8000AA86EA /* Info.plist */,
+			);
+			path = Petal;
+			sourceTree = "<group>";
+		};
+		CEF190611C67BF8000AA86EA /* PetalTests */ = {
+			isa = PBXGroup;
+			children = (
+				CEF190621C67BF8000AA86EA /* PetalTests.swift */,
+				CEF190641C67BF8000AA86EA /* Info.plist */,
+			);
+			path = PetalTests;
+			sourceTree = "<group>";
+		};
+		CEF1906F1C67C0D400AA86EA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CEF190701C67C0D400AA86EA /* Petal.swift */,
+				CEF190741C68E27D00AA86EA /* PetalAnimation.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEF190491C67BF8000AA86EA /* Petal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEF190671C67BF8000AA86EA /* Build configuration list for PBXNativeTarget "Petal" */;
+			buildPhases = (
+				CEF190461C67BF8000AA86EA /* Sources */,
+				CEF190471C67BF8000AA86EA /* Frameworks */,
+				CEF190481C67BF8000AA86EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Petal;
+			productName = Petal;
+			productReference = CEF1904A1C67BF8000AA86EA /* Petal.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CEF1905D1C67BF8000AA86EA /* PetalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEF1906A1C67BF8000AA86EA /* Build configuration list for PBXNativeTarget "PetalTests" */;
+			buildPhases = (
+				CEF1905A1C67BF8000AA86EA /* Sources */,
+				CEF1905B1C67BF8000AA86EA /* Frameworks */,
+				CEF1905C1C67BF8000AA86EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEF190601C67BF8000AA86EA /* PBXTargetDependency */,
+			);
+			name = PetalTests;
+			productName = PetalTests;
+			productReference = CEF1905E1C67BF8000AA86EA /* PetalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEF190421C67BF8000AA86EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Yannick Loriot";
+				TargetAttributes = {
+					CEF190491C67BF8000AA86EA = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					CEF1905D1C67BF8000AA86EA = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = CEF190491C67BF8000AA86EA;
+					};
+				};
+			};
+			buildConfigurationList = CEF190451C67BF8000AA86EA /* Build configuration list for PBXProject "Petal" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CEF190411C67BF8000AA86EA;
+			productRefGroup = CEF1904B1C67BF8000AA86EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CEF190491C67BF8000AA86EA /* Petal */,
+				CEF1905D1C67BF8000AA86EA /* PetalTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEF190481C67BF8000AA86EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEF190581C67BF8000AA86EA /* LaunchScreen.storyboard in Resources */,
+				CEF190551C67BF8000AA86EA /* Assets.xcassets in Resources */,
+				CEF190531C67BF8000AA86EA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEF1905C1C67BF8000AA86EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEF190461C67BF8000AA86EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEF190501C67BF8000AA86EA /* ViewController.swift in Sources */,
+				CEF1904E1C67BF8000AA86EA /* AppDelegate.swift in Sources */,
+				CEF190711C67C0D400AA86EA /* Petal.swift in Sources */,
+				CEF190751C68E27D00AA86EA /* PetalAnimation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEF1905A1C67BF8000AA86EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEF190631C67BF8000AA86EA /* PetalTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CEF190601C67BF8000AA86EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CEF190491C67BF8000AA86EA /* Petal */;
+			targetProxy = CEF1905F1C67BF8000AA86EA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CEF190511C67BF8000AA86EA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEF190521C67BF8000AA86EA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CEF190561C67BF8000AA86EA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEF190571C67BF8000AA86EA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CEF190651C67BF8000AA86EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CEF190661C67BF8000AA86EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CEF190681C67BF8000AA86EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Petal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.Petal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CEF190691C67BF8000AA86EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Petal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.Petal;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CEF1906B1C67BF8000AA86EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PetalTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PetalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Petal.app/Petal";
+			};
+			name = Debug;
+		};
+		CEF1906C1C67BF8000AA86EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PetalTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PetalTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Petal.app/Petal";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEF190451C67BF8000AA86EA /* Build configuration list for PBXProject "Petal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEF190651C67BF8000AA86EA /* Debug */,
+				CEF190661C67BF8000AA86EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEF190671C67BF8000AA86EA /* Build configuration list for PBXNativeTarget "Petal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEF190681C67BF8000AA86EA /* Debug */,
+				CEF190691C67BF8000AA86EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CEF1906A1C67BF8000AA86EA /* Build configuration list for PBXNativeTarget "PetalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEF1906B1C67BF8000AA86EA /* Debug */,
+				CEF1906C1C67BF8000AA86EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CEF190421C67BF8000AA86EA /* Project object */;
+}

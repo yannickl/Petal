@@ -23,31 +23,9 @@
 // THE SOFTWARE.
 //
 
-import UIKit
-import QuartzCore
+import PackageDescription
 
-/**
- Convenience object to create animation to modify the shape of the layer.
- */
-final class PetalAnimation: CAKeyframeAnimation {
-  /**
-   Creates and returns a `CAKeyframeAnimation` object with pre-configured properties.
+let package = Package(
+  name: "Petal"
+)
 
-   - parameter duration: The basic duration of the animation, in seconds.
-   - parameter beginTime: The begin time of the receiver in relation to its parent object.
-   - parameter timeOffset: Additional time offset in active local time.
-   */
-  class func animationWithDuration(duration: CFTimeInterval, beginTime: CFTimeInterval, timeOffset: CFTimeInterval) -> Self {
-    let anim = self.init(keyPath: "path")
-
-    anim.keyTimes            = [0, 0.5, 1]
-    anim.repeatCount         = HUGE
-    anim.duration            = duration
-    anim.beginTime           = beginTime
-    anim.timeOffset          = timeOffset
-    anim.fillMode            = kCAFillModeForwards
-    anim.removedOnCompletion = false
-
-    return anim
-  }
-}

@@ -37,12 +37,20 @@ import QuartzCore
   /**
    The petal count.
    */
-  @IBInspectable public var petalCount: UInt         = 15
+  @IBInspectable public var petalCount: UInt = 15 {
+    didSet {
+      setupLayers()
+    }
+  }
 
   /**
    The rotation duration in seconds.
    */
-  @IBInspectable public var rotationDuration: Double = 12
+  @IBInspectable public var rotationDuration: Double = 12 {
+    didSet {
+      setupLayers()
+    }
+  }
 
   /**
    The colors of the petals. They are displayed sequentially.
@@ -75,6 +83,19 @@ import QuartzCore
   public private(set) var animating: Bool = false
 
   /**
+   A Boolean value that controls whether the receiver is hidden when the animation is stopped.
+
+   If the value of this property is true (the default), the receiver dismiss its petals when receiver is not animating. If the hidesWhenStopped property is false, the receiver is not hidden when animation stops. You stop an animating progress indicator with the stopAnimating method.
+   */
+  @IBInspectable public var hidesWhenStopped: Bool = true {
+    didSet {
+      if !animating {
+        setupLayers()
+      }
+    }
+  }
+
+  /**
    Starts the animation of the petal.
 
    When the progress indicator is animated, the petals grow, shrink and rotate to indicate indeterminate progress. The indicator is animated until stopAnimating is called.
@@ -86,23 +107,20 @@ import QuartzCore
 
     animating = true
 
-    let scaleAnim                 = CABasicAnimation(keyPath: "transform.scale")
-    scaleAnim.fromValue           = 0
-    scaleAnim.toValue             = 1
-    scaleAnim.duration            = 0.2
-    scaleAnim.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-    scaleAnim.fillMode            = kCAFillModeForwards
-    scaleAnim.removedOnCompletion = false
+    if layer.speed == 0 {
+      let timeSincePause = CACurrentMediaTime() - layer.timeOffset
+      layer.timeOffset   = 0
+      layer.beginTime    = timeSincePause
 
-    layer.addAnimation(scaleAnim, forKey: "scale")
-
-    /*if layer.speed == 0 {
-    let timeSincePause = CACurrentMediaTime() - layer.timeOffset
-    layer.timeOffset   = 0
-    layer.beginTime    = timeSincePause
+      layer.speed = 1
     }
 
-    layer.speed = 1*/
+    if hidesWhenStopped {
+      layer.timeOffset = 0
+      layer.beginTime  = 0
+
+      scaleFrom(0, to: 1)
+    }
 
     prepareAnimations()
   }
@@ -117,21 +135,14 @@ import QuartzCore
       return
     }
 
-    /*if !hidesWhenStopped {
-    let pausedTime   = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
-    layer.speed      = 0
-    layer.timeOffset = pausedTime
-    }*/
-
-    let scaleAnim                 = CABasicAnimation(keyPath: "transform.scale")
-    scaleAnim.fromValue           = 1
-    scaleAnim.toValue             = 0
-    scaleAnim.duration            = 0.2
-    scaleAnim.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-    scaleAnim.fillMode            = kCAFillModeForwards
-    scaleAnim.removedOnCompletion = false
-
-    layer.addAnimation(scaleAnim, forKey: "scale")
+    if !hidesWhenStopped {
+      let pausedTime   = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+      layer.speed      = 0
+      layer.timeOffset = pausedTime
+    }
+    else {
+      scaleFrom(1, to: 0)
+    }
 
     animating = false
   }
@@ -173,6 +184,18 @@ import QuartzCore
         pistils[Int(i)].addAnimation(pistilAnim, forKey: "morphing")
       }
     }
+  }
+
+  func scaleFrom(from: CGFloat, to: CGFloat) {
+    let scaleAnim                 = CABasicAnimation(keyPath: "transform.scale")
+    scaleAnim.fromValue           = from
+    scaleAnim.toValue             = to
+    scaleAnim.duration            = 0.2
+    scaleAnim.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+    scaleAnim.fillMode            = kCAFillModeForwards
+    scaleAnim.removedOnCompletion = false
+
+    layer.addAnimation(scaleAnim, forKey: "scale")
   }
 
   // MARK: - Creating Petals
@@ -223,11 +246,20 @@ import QuartzCore
 
       petals.append(petalLayer)
       pistils.append(pistilLayer)
-      
+
       layer.addSublayer(petalLayer)
       layer.addSublayer(pistilLayer)
     }
-    
+
     layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+
+    if !hidesWhenStopped {
+      layer.removeAnimationForKey("scale")
+
+      prepareAnimations()
+
+      layer.timeOffset = CACurrentMediaTime()
+      layer.speed      = 0
+    }
   }
 }

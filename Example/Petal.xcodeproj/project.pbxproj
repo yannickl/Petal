@@ -10,18 +10,18 @@
 		CE2E7B0C1C69EEB7001E0007 /* PetalFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2E7B0B1C69EEB7001E0007 /* PetalFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE2E7B101C69EEB7001E0007 /* PetalFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E7B091C69EEB7001E0007 /* PetalFramework.framework */; };
 		CE2E7B111C69EEB7001E0007 /* PetalFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E7B091C69EEB7001E0007 /* PetalFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CE2E7B161C69EEC7001E0007 /* Petal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190701C67C0D400AA86EA /* Petal.swift */; };
-		CE2E7B171C69EEC7001E0007 /* PetalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190741C68E27D00AA86EA /* PetalAnimation.swift */; };
-		CE2E7B181C69F2BD001E0007 /* Petal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190701C67C0D400AA86EA /* Petal.swift */; };
-		CE2E7B191C69F2BD001E0007 /* PetalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190741C68E27D00AA86EA /* PetalAnimation.swift */; };
+		CEA561311C69FA9F00789D7E /* Petal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA5612F1C69FA9F00789D7E /* Petal.swift */; };
+		CEA561321C69FA9F00789D7E /* PetalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA561301C69FA9F00789D7E /* PetalAnimation.swift */; };
+		CEA561331C69FAA800789D7E /* Petal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA5612F1C69FA9F00789D7E /* Petal.swift */; };
+		CEA561341C69FAA800789D7E /* PetalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA561301C69FA9F00789D7E /* PetalAnimation.swift */; };
+		CEA561351C69FAA800789D7E /* Petal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA5612F1C69FA9F00789D7E /* Petal.swift */; };
+		CEA561361C69FAA800789D7E /* PetalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA561301C69FA9F00789D7E /* PetalAnimation.swift */; };
 		CEF1904E1C67BF8000AA86EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1904D1C67BF8000AA86EA /* AppDelegate.swift */; };
 		CEF190501C67BF8000AA86EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1904F1C67BF8000AA86EA /* ViewController.swift */; };
 		CEF190531C67BF8000AA86EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF190511C67BF8000AA86EA /* Main.storyboard */; };
 		CEF190551C67BF8000AA86EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF190541C67BF8000AA86EA /* Assets.xcassets */; };
 		CEF190581C67BF8000AA86EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF190561C67BF8000AA86EA /* LaunchScreen.storyboard */; };
 		CEF190631C67BF8000AA86EA /* PetalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190621C67BF8000AA86EA /* PetalTests.swift */; };
-		CEF190711C67C0D400AA86EA /* Petal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190701C67C0D400AA86EA /* Petal.swift */; };
-		CEF190751C68E27D00AA86EA /* PetalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190741C68E27D00AA86EA /* PetalAnimation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +59,8 @@
 		CE2E7B091C69EEB7001E0007 /* PetalFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PetalFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2E7B0B1C69EEB7001E0007 /* PetalFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PetalFramework.h; sourceTree = "<group>"; };
 		CE2E7B0D1C69EEB7001E0007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEA5612F1C69FA9F00789D7E /* Petal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Petal.swift; sourceTree = "<group>"; };
+		CEA561301C69FA9F00789D7E /* PetalAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetalAnimation.swift; sourceTree = "<group>"; };
 		CEF1904A1C67BF8000AA86EA /* Petal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF1904D1C67BF8000AA86EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF1904F1C67BF8000AA86EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,8 +71,6 @@
 		CEF1905E1C67BF8000AA86EA /* PetalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF190621C67BF8000AA86EA /* PetalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetalTests.swift; sourceTree = "<group>"; };
 		CEF190641C67BF8000AA86EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CEF190701C67C0D400AA86EA /* Petal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Petal.swift; sourceTree = "<group>"; };
-		CEF190741C68E27D00AA86EA /* PetalAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetalAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +108,20 @@
 			path = PetalFramework;
 			sourceTree = "<group>";
 		};
+		CEA5612E1C69FA9F00789D7E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				CEA5612F1C69FA9F00789D7E /* Petal.swift */,
+				CEA561301C69FA9F00789D7E /* PetalAnimation.swift */,
+			);
+			name = Sources;
+			path = ../Sources;
+			sourceTree = "<group>";
+		};
 		CEF190411C67BF8000AA86EA = {
 			isa = PBXGroup;
 			children = (
-				CEF1906F1C67C0D400AA86EA /* Sources */,
+				CEA5612E1C69FA9F00789D7E /* Sources */,
 				CEF1904C1C67BF8000AA86EA /* Petal */,
 				CEF190611C67BF8000AA86EA /* PetalTests */,
 				CE2E7B0A1C69EEB7001E0007 /* PetalFramework */,
@@ -149,15 +159,6 @@
 				CEF190641C67BF8000AA86EA /* Info.plist */,
 			);
 			path = PetalTests;
-			sourceTree = "<group>";
-		};
-		CEF1906F1C67C0D400AA86EA /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				CEF190701C67C0D400AA86EA /* Petal.swift */,
-				CEF190741C68E27D00AA86EA /* PetalAnimation.swift */,
-			);
-			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,8 +304,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE2E7B161C69EEC7001E0007 /* Petal.swift in Sources */,
-				CE2E7B171C69EEC7001E0007 /* PetalAnimation.swift in Sources */,
+				CEA561351C69FAA800789D7E /* Petal.swift in Sources */,
+				CEA561361C69FAA800789D7E /* PetalAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,9 +314,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEF190501C67BF8000AA86EA /* ViewController.swift in Sources */,
+				CEA561321C69FA9F00789D7E /* PetalAnimation.swift in Sources */,
 				CEF1904E1C67BF8000AA86EA /* AppDelegate.swift in Sources */,
-				CEF190711C67C0D400AA86EA /* Petal.swift in Sources */,
-				CEF190751C68E27D00AA86EA /* PetalAnimation.swift in Sources */,
+				CEA561311C69FA9F00789D7E /* Petal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,8 +324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE2E7B191C69F2BD001E0007 /* PetalAnimation.swift in Sources */,
-				CE2E7B181C69F2BD001E0007 /* Petal.swift in Sources */,
+				CEA561341C69FAA800789D7E /* PetalAnimation.swift in Sources */,
+				CEA561331C69FAA800789D7E /* Petal.swift in Sources */,
 				CEF190631C67BF8000AA86EA /* PetalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +554,7 @@
 				CE2E7B131C69EEB7001E0007 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEF190451C67BF8000AA86EA /* Build configuration list for PBXProject "Petal" */ = {
 			isa = XCConfigurationList;

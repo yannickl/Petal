@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE2E7B0C1C69EEB7001E0007 /* PetalFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = CE2E7B0B1C69EEB7001E0007 /* PetalFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE2E7B101C69EEB7001E0007 /* PetalFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E7B091C69EEB7001E0007 /* PetalFramework.framework */; };
+		CE2E7B111C69EEB7001E0007 /* PetalFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E7B091C69EEB7001E0007 /* PetalFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE2E7B161C69EEC7001E0007 /* Petal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190701C67C0D400AA86EA /* Petal.swift */; };
+		CE2E7B171C69EEC7001E0007 /* PetalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190741C68E27D00AA86EA /* PetalAnimation.swift */; };
 		CEF1904E1C67BF8000AA86EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1904D1C67BF8000AA86EA /* AppDelegate.swift */; };
 		CEF190501C67BF8000AA86EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1904F1C67BF8000AA86EA /* ViewController.swift */; };
 		CEF190531C67BF8000AA86EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF190511C67BF8000AA86EA /* Main.storyboard */; };
@@ -18,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CE2E7B0E1C69EEB7001E0007 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEF190421C67BF8000AA86EA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE2E7B081C69EEB7001E0007;
+			remoteInfo = PetalFramework;
+		};
 		CEF1905F1C67BF8000AA86EA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CEF190421C67BF8000AA86EA /* Project object */;
@@ -27,7 +39,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CE2E7B151C69EEB7001E0007 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CE2E7B111C69EEB7001E0007 /* PetalFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		CE2E7B091C69EEB7001E0007 /* PetalFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PetalFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2E7B0B1C69EEB7001E0007 /* PetalFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PetalFramework.h; sourceTree = "<group>"; };
+		CE2E7B0D1C69EEB7001E0007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEF1904A1C67BF8000AA86EA /* Petal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF1904D1C67BF8000AA86EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEF1904F1C67BF8000AA86EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,10 +72,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CE2E7B051C69EEB7001E0007 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEF190471C67BF8000AA86EA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2E7B101C69EEB7001E0007 /* PetalFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +97,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE2E7B0A1C69EEB7001E0007 /* PetalFramework */ = {
+			isa = PBXGroup;
+			children = (
+				CE2E7B0B1C69EEB7001E0007 /* PetalFramework.h */,
+				CE2E7B0D1C69EEB7001E0007 /* Info.plist */,
+			);
+			path = PetalFramework;
+			sourceTree = "<group>";
+		};
 		CEF190411C67BF8000AA86EA = {
 			isa = PBXGroup;
 			children = (
 				CEF1906F1C67C0D400AA86EA /* Sources */,
 				CEF1904C1C67BF8000AA86EA /* Petal */,
 				CEF190611C67BF8000AA86EA /* PetalTests */,
+				CE2E7B0A1C69EEB7001E0007 /* PetalFramework */,
 				CEF1904B1C67BF8000AA86EA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +122,7 @@
 			children = (
 				CEF1904A1C67BF8000AA86EA /* Petal.app */,
 				CEF1905E1C67BF8000AA86EA /* PetalTests.xctest */,
+				CE2E7B091C69EEB7001E0007 /* PetalFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,7 +160,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		CE2E7B061C69EEB7001E0007 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2E7B0C1C69EEB7001E0007 /* PetalFramework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		CE2E7B081C69EEB7001E0007 /* PetalFramework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE2E7B141C69EEB7001E0007 /* Build configuration list for PBXNativeTarget "PetalFramework" */;
+			buildPhases = (
+				CE2E7B041C69EEB7001E0007 /* Sources */,
+				CE2E7B051C69EEB7001E0007 /* Frameworks */,
+				CE2E7B061C69EEB7001E0007 /* Headers */,
+				CE2E7B071C69EEB7001E0007 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PetalFramework;
+			productName = PetalFramework;
+			productReference = CE2E7B091C69EEB7001E0007 /* PetalFramework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		CEF190491C67BF8000AA86EA /* Petal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEF190671C67BF8000AA86EA /* Build configuration list for PBXNativeTarget "Petal" */;
@@ -120,10 +197,12 @@
 				CEF190461C67BF8000AA86EA /* Sources */,
 				CEF190471C67BF8000AA86EA /* Frameworks */,
 				CEF190481C67BF8000AA86EA /* Resources */,
+				CE2E7B151C69EEB7001E0007 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CE2E7B0F1C69EEB7001E0007 /* PBXTargetDependency */,
 			);
 			name = Petal;
 			productName = Petal;
@@ -158,6 +237,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Yannick Loriot";
 				TargetAttributes = {
+					CE2E7B081C69EEB7001E0007 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 					CEF190491C67BF8000AA86EA = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
@@ -182,11 +264,19 @@
 			targets = (
 				CEF190491C67BF8000AA86EA /* Petal */,
 				CEF1905D1C67BF8000AA86EA /* PetalTests */,
+				CE2E7B081C69EEB7001E0007 /* PetalFramework */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CE2E7B071C69EEB7001E0007 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEF190481C67BF8000AA86EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -207,6 +297,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CE2E7B041C69EEB7001E0007 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE2E7B161C69EEC7001E0007 /* Petal.swift in Sources */,
+				CE2E7B171C69EEC7001E0007 /* PetalAnimation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEF190461C67BF8000AA86EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -229,6 +328,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CE2E7B0F1C69EEB7001E0007 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE2E7B081C69EEB7001E0007 /* PetalFramework */;
+			targetProxy = CE2E7B0E1C69EEB7001E0007 /* PBXContainerItemProxy */;
+		};
 		CEF190601C67BF8000AA86EA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CEF190491C67BF8000AA86EA /* Petal */;
@@ -256,6 +360,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		CE2E7B121C69EEB7001E0007 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PetalFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PetalFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CE2E7B131C69EEB7001E0007 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PetalFramework/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PetalFramework;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		CEF190651C67BF8000AA86EA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -343,6 +487,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Petal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.Petal;
@@ -354,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Petal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.Petal;
@@ -388,6 +534,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CE2E7B141C69EEB7001E0007 /* Build configuration list for PBXNativeTarget "PetalFramework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE2E7B121C69EEB7001E0007 /* Debug */,
+				CE2E7B131C69EEB7001E0007 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		CEF190451C67BF8000AA86EA /* Build configuration list for PBXProject "Petal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -404,6 +558,7 @@
 				CEF190691C67BF8000AA86EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEF1906A1C67BF8000AA86EA /* Build configuration list for PBXNativeTarget "PetalTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +567,7 @@
 				CEF1906C1C67BF8000AA86EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -5,7 +5,7 @@
 Petal is a beautiful activity indicator to show that a task is in progress.
 
 <p align="center">
-  <img src="http://yannickloriot.com/resources/petal.gif" alt="Petal" width="200"/>
+  <img src="http://yannickloriot.com/resources/petal-anim.gif" alt="Petal" width="200"/>
 </p>
 
 ## Usage

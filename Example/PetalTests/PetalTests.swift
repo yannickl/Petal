@@ -7,30 +7,41 @@
 //
 
 import XCTest
-@testable import Petal
 
 class PetalTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+  func testPetalCount() {
+    let petalView = Petal()
+
+    petalView.petalCount = 12
+
+    XCTAssertEqual(petalView.petals.count, 12)
+    XCTAssertEqual(petalView.pistils.count, 12)
+
+    petalView.petalCount = 23
+
+    XCTAssertEqual(petalView.petals.count, 23)
+    XCTAssertEqual(petalView.pistils.count, 23)
+
+    petalView.petalCount = 0
+
+    XCTAssertEqual(petalView.petals.count, 0)
+    XCTAssertEqual(petalView.pistils.count, 0)
+  }
+
+  func testPetalColors() {
+    let petalView = Petal()
+
+    petalView.petalCount = 12
+    petalView.colors     = [.redColor(), .blueColor()]
+
+    for (i, petal) in petalView.petals.enumerate() {
+      XCTAssertTrue(CGColorEqualToColor(petal.fillColor, petalView.colors[i % petalView.colors.count].CGColor))
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+
+    petalView.colors = [.redColor(), .blueColor(), .greenColor()]
+
+    for (i, petal) in petalView.petals.enumerate() {
+      XCTAssertTrue(CGColorEqualToColor(petal.fillColor, petalView.colors[i % petalView.colors.count].CGColor))
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+  }
 }

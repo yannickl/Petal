@@ -12,6 +12,8 @@
 		CE2E7B111C69EEB7001E0007 /* PetalFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE2E7B091C69EEB7001E0007 /* PetalFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE2E7B161C69EEC7001E0007 /* Petal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190701C67C0D400AA86EA /* Petal.swift */; };
 		CE2E7B171C69EEC7001E0007 /* PetalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190741C68E27D00AA86EA /* PetalAnimation.swift */; };
+		CE2E7B181C69F2BD001E0007 /* Petal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190701C67C0D400AA86EA /* Petal.swift */; };
+		CE2E7B191C69F2BD001E0007 /* PetalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF190741C68E27D00AA86EA /* PetalAnimation.swift */; };
 		CEF1904E1C67BF8000AA86EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1904D1C67BF8000AA86EA /* AppDelegate.swift */; };
 		CEF190501C67BF8000AA86EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF1904F1C67BF8000AA86EA /* ViewController.swift */; };
 		CEF190531C67BF8000AA86EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF190511C67BF8000AA86EA /* Main.storyboard */; };
@@ -321,6 +323,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2E7B191C69F2BD001E0007 /* PetalAnimation.swift in Sources */,
+				CE2E7B181C69F2BD001E0007 /* Petal.swift in Sources */,
 				CEF190631C67BF8000AA86EA /* PetalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +515,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = PetalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PetalTests;
@@ -523,6 +529,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				INFOPLIST_FILE = PetalTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yannickloriot.PetalTests;

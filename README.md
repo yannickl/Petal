@@ -1,6 +1,6 @@
 # Petal ❀
 
-[![License](https://cocoapod-badges.herokuapp.com/l/Petal/badge.svg)](http://cocoadocs.org/docsets/FlowingMenu/) [![Supported Platforms](https://cocoapod-badges.herokuapp.com/p/Petal/badge.svg)](http://cocoadocs.org/docsets/FlowingMenu/) [![Version](https://cocoapod-badges.herokuapp.com/v/Petal/badge.svg)](http://cocoadocs.org/docsets/FlowingMenu/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/yannickl/Petal.svg?branch=master)](https://travis-ci.org/yannickl/Petal) [![codecov.io](http://codecov.io/github/yannickl/Petal/coverage.svg?branch=master)](http://codecov.io/github/yannickl/Petal?branch=master)
+[![License](https://cocoapod-badges.herokuapp.com/l/Petal/badge.svg)](http://cocoadocs.org/docsets/Petal/) [![Supported Platforms](https://cocoapod-badges.herokuapp.com/p/Petal/badge.svg)](http://cocoadocs.org/docsets/Petal/) [![Version](https://cocoapod-badges.herokuapp.com/v/Petal/badge.svg)](http://cocoadocs.org/docsets/Petal/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/yannickl/Petal.svg?branch=master)](https://travis-ci.org/yannickl/Petal) [![codecov.io](http://codecov.io/github/yannickl/Petal/coverage.svg?branch=master)](http://codecov.io/github/yannickl/Petal?branch=master)
 
 Petal is a beautiful activity indicator to show that a task is in progress.
 

@@ -16,52 +16,26 @@ At first, import Petal library:
 import Petal
 ```
 
-Then just add a `FlowingMenuTransitionManager` object that acts as `transitioningDelegate` of the view controller you want display:
+Then just create your `Petal`:
 
 ```swift
-let flowingMenuTransitionManager = FlowingMenuTransitionManager()
+let petal   = Petal()
+petal.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
 
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  let vc                   = segue.destinationViewController
-  vc.transitioningDelegate = flowingMenuTransitionManager
-}
+view.addSubview(petal)
 ```
 
-If you want interactive transition you will need to implement the `FlowingMenuDelegate` methods and defines the views which will interact with the gestures:
+To update the petal number, the color of each one and the rotation duration use these properties:
 
 ```swift
-var menu: UIViewController?
+petal.petalCount       = 9
+petal.colors           = [.redColor(), .blueColor(), .greenColor()]
+petal.rotationDuration = 12
+```
 
-override func viewDidLoad() {
-  super.viewDidLoad()
-
-  // Add the pan screen edge gesture to the current view
-  flowingMenuTransitionManager.setInteractivePresentationView(view)
-
-  // Add the delegate to respond to interactive transition events
-  flowingMenuTransitionManager.delegate = self
-}
-
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  let vc                   = segue.destinationViewController
-  vc.transitioningDelegate = flowingMenuTransitionManager
-
-  // Add the left pan gesture to the menu
-  flowingMenuTransitionManager.setInteractiveDismissView(vc.view)
-
-  // Keep a reference of the current menu
-  menu = vc
-}
-
-// MARK: - FlowingMenu Delegate Methods
-
-func flowingMenuNeedsPresentMenu(flowingMenu: FlowingMenuTransitionManager) {
-  performSegueWithIdentifier("PresentSegueName", sender: self)
-}
-
-func flowingMenuNeedsDismissMenu(flowingMenu: FlowingMenuTransitionManager) {
-  menu?.performSegueWithIdentifier("DismissSegueName", sender: self)
-}
+Like with an activity indicator you can update its behavior when it's stopped:
+```swift
+petal.hidesWhenStopped = true
 ```
 
 Have fun! :)

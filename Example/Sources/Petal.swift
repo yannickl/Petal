@@ -35,18 +35,19 @@ import QuartzCore
  */
 @IBDesignable public final class Petal: UIView {
   /**
-   The petal count.
+   Prepares the receiver for service after it has been loaded from an Interface Builder archive, or nib file.
    */
-  @IBInspectable public var petalCount: UInt = 15 {
-    didSet {
-      setupLayers()
-    }
+  public override func awakeFromNib() {
+    super.awakeFromNib()
+
+    setupLayers()
   }
 
+  // MARK: - Setting the Appearence
   /**
-   The rotation duration in seconds.
-   */
-  @IBInspectable public var rotationDuration: Double = 12 {
+  The petal count.
+  */
+  @IBInspectable public var petalCount: UInt = 15 {
     didSet {
       setupLayers()
     }
@@ -67,10 +68,15 @@ import QuartzCore
     }
   }
 
-  public override func awakeFromNib() {
-    super.awakeFromNib()
+  // MARK: - Managing the Petal Behavior
 
-    setupLayers()
+  /**
+  The rotation duration in seconds.
+  */
+  @IBInspectable public var rotationDuration: Double = 12 {
+    didSet {
+      setupLayers()
+    }
   }
 
   // MARK: - Managing a Petal
@@ -252,12 +258,12 @@ import QuartzCore
     }
 
     layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-
+    
     if !hidesWhenStopped {
       layer.removeAnimationForKey("scale")
-
+      
       prepareAnimations()
-
+      
       layer.timeOffset = CACurrentMediaTime()
       layer.speed      = 0
     }

@@ -42,6 +42,7 @@ import QuartzCore
   }
 
   // MARK: - Setting the Appearence
+
   /**
   The petal count.
   */
@@ -54,7 +55,7 @@ import QuartzCore
   /**
    The colors of the petals. They are displayed sequentially.
    */
-  @IBInspectable public var colors: [UIColor]        = [
+  @IBInspectable public var colors: [UIColor] = [
     UIColor(red: 72/255, green: 178/255, blue: 197/255, alpha: 1),
     UIColor(red: 112/255, green: 184/255, blue: 197/255, alpha: 1),
     UIColor(red: 56/255, green: 111/255, blue: 121/255, alpha: 1),

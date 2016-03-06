@@ -24,6 +24,9 @@
                                     <constraint firstAttribute="width" constant="300" id="ECo-P3-K8d"/>
                                     <constraint firstAttribute="width" secondItem="STR-hp-Ih9" secondAttribute="height" multiplier="1:1" id="asG-Q6-c87"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hidesWhenStopped" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kN-Fz-yRQ">
                                 <rect key="frame" x="261" y="482" width="78" height="30"/>

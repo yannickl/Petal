@@ -29,7 +29,7 @@ import QuartzCore
 /**
  Convenience object to create animation to modify the shape of the layer.
  */
-final class PetalAnimation: CAKeyframeAnimation {
+final class PetalAnimation {
   /**
    Creates and returns a `CAKeyframeAnimation` object with pre-configured properties.
 
@@ -37,8 +37,8 @@ final class PetalAnimation: CAKeyframeAnimation {
    - parameter beginTime: The begin time of the receiver in relation to its parent object.
    - parameter timeOffset: Additional time offset in active local time.
    */
-  class func animationWithDuration(duration: CFTimeInterval, beginTime: CFTimeInterval, timeOffset: CFTimeInterval) -> Self {
-    let anim = self.init(keyPath: "path")
+  class func animationWithDuration(duration: CFTimeInterval, beginTime: CFTimeInterval, timeOffset: CFTimeInterval) -> CAKeyframeAnimation {
+    let anim = CAKeyframeAnimation(keyPath: "path")
 
     anim.keyTimes            = [0, 0.5, 1]
     anim.repeatCount         = HUGE

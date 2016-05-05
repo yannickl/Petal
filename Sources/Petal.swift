@@ -182,20 +182,19 @@ import QuartzCore
     let morphingDuration = rotationDuration / 4
     let morphingMod      = Double(petalCount) / 4
 
-    let timeOffset = time + (morphingDuration / morphingMod) * (Double(index) % morphingMod)
+    let timeOffset     = time + (morphingDuration / morphingMod) * (Double(index) % morphingMod)
+    let configurations = [
+      (layer: petals[Int(index)], values: [0.8, 1, 0.8].map({ pathForPetalAt(index, radiusRatio: $0) })),
+      (layer: pistils[Int(index)], values: [0.2, 0.4, 0.2].map ({ pathForPetalAt(index, radiusRatio: $0, angleOffset: CGFloat(M_PI)) }))
+    ]
 
-    let petalAnim    = PetalAnimation.animationWithDuration(morphingDuration, beginTime: time, timeOffset: timeOffset)
-    petalAnim.values = [0.8, 1, 0.8].map { pathForPetalAt(index, radiusRatio: $0) }
+    for configuration in configurations {
+      if configuration.layer.animationForKey("morphing") == nil {
+        let anim    = PetalAnimation.animationWithDuration(morphingDuration, beginTime: time, timeOffset: timeOffset)
+        anim.values = configuration.values
 
-    let pistilAnim    = PetalAnimation.animationWithDuration(morphingDuration, beginTime: time, timeOffset: timeOffset)
-    pistilAnim.values = [0.2, 0.4, 0.2].map { pathForPetalAt(index, radiusRatio: $0, angleOffset: CGFloat(M_PI)) }
-
-    if petals[Int(index)].animationForKey("morphing") == nil {
-      petals[Int(index)].addAnimation(petalAnim, forKey: "morphing")
-    }
-
-    if pistils[Int(index)].animationForKey("morphing") == nil {
-      pistils[Int(index)].addAnimation(pistilAnim, forKey: "morphing")
+        configuration.layer.addAnimation(anim, forKey: "morphing")
+      }
     }
   }
 

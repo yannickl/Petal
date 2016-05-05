@@ -124,7 +124,9 @@ import QuartzCore
       layer.timeOffset = 0
       layer.beginTime  = 0
 
-      scaleFrom(0, to: 1)
+      let scaleAnimation = PetalAnimation.scaleAnimationFrom(0, to: 1)
+
+      layer.addAnimation(scaleAnimation, forKey: "scale")
     }
 
     prepareAnimations()
@@ -146,7 +148,9 @@ import QuartzCore
       layer.timeOffset = pausedTime
     }
     else {
-      scaleFrom(1, to: 0)
+      let scaleAnimation = PetalAnimation.scaleAnimationFrom(1, to: 0)
+
+      layer.addAnimation(scaleAnimation, forKey: "scale")
     }
 
     animating = false
@@ -158,80 +162,20 @@ import QuartzCore
     let beginTime = CACurrentMediaTime()
 
     if layer.animationForKey("rotation") == nil {
-      addRotationAnimationAtTime(beginTime)
+      let rotationAnimation = PetalAnimation.rotationAnimationWithDuration(rotationDuration, beginTime: beginTime)
+
+      layer.addAnimation(rotationAnimation, forKey: "rotation")
     }
 
     for i in 0 ..< petalCount {
-      addMorphinAnimationAtTime(beginTime, forPetalAt: i)
+      PetalAnimation.addMorphinAnimationForPetal(petals[Int(i)], pistil: pistils[Int(i)], duration: rotationDuration, beginTime: beginTime, forPetalAt: i, petalCount: Double(petals.count), constraintInBounds: bounds)
     }
-  }
-
-  func addRotationAnimationAtTime(time: CFTimeInterval) {
-    let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-
-    rotationAnimation.fromValue   = 0
-    rotationAnimation.toValue     = CGFloat(M_PI * 2)
-    rotationAnimation.duration    = rotationDuration
-    rotationAnimation.repeatCount = HUGE
-    rotationAnimation.beginTime   = time
-
-    layer.addAnimation(rotationAnimation, forKey: "rotation")
-  }
-
-  func addMorphinAnimationAtTime(time: CFTimeInterval, forPetalAt index: UInt) {
-    let morphingDuration = rotationDuration / 4
-    let morphingMod      = Double(petalCount) / 4
-
-    let timeOffset     = time + (morphingDuration / morphingMod) * (Double(index) % morphingMod)
-    let configurations = [
-      (layer: petals[Int(index)], values: [0.8, 1, 0.8].map({ pathForPetalAt(index, radiusRatio: $0) })),
-      (layer: pistils[Int(index)], values: [0.2, 0.4, 0.2].map ({ pathForPetalAt(index, radiusRatio: $0, angleOffset: CGFloat(M_PI)) }))
-    ]
-
-    for configuration in configurations {
-      if configuration.layer.animationForKey("morphing") == nil {
-        let anim    = PetalAnimation.animationWithDuration(morphingDuration, beginTime: time, timeOffset: timeOffset)
-        anim.values = configuration.values
-
-        configuration.layer.addAnimation(anim, forKey: "morphing")
-      }
-    }
-  }
-
-  func scaleFrom(from: CGFloat, to: CGFloat) {
-    let scaleAnim                 = CABasicAnimation(keyPath: "transform.scale")
-    scaleAnim.fromValue           = from
-    scaleAnim.toValue             = to
-    scaleAnim.duration            = 0.2
-    scaleAnim.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-    scaleAnim.fillMode            = kCAFillModeForwards
-    scaleAnim.removedOnCompletion = false
-
-    layer.addAnimation(scaleAnim, forKey: "scale")
   }
 
   // MARK: - Creating Petals
 
   var petals: [CAShapeLayer]  = []
   var pistils: [CAShapeLayer] = []
-
-  func pathForPetalAt(index: UInt, radiusRatio: CGFloat, angleOffset: CGFloat = 0) -> CGPath {
-    let center     = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-    let startAngle = angleOffset + CGFloat(M_PI * 2 / Double(petalCount)) * CGFloat(index)
-    let endAngle   = angleOffset + CGFloat(M_PI * 2 / Double(petalCount)) * CGFloat(index + 1)
-
-    return petalPathAtCenter(center, radiusRatio: radiusRatio, startAngle: startAngle, endAngle: endAngle)
-  }
-
-  func petalPathAtCenter(center: CGPoint, radiusRatio: CGFloat, startAngle: CGFloat, endAngle: CGFloat) -> CGPath {
-    let radius = min(bounds.width / 2, bounds.height / 2) * radiusRatio
-
-    let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
-    path.addLineToPoint(center)
-    path.closePath()
-
-    return path.CGPath
-  }
 
   func setupLayers() {
     layer.removeAllAnimations()

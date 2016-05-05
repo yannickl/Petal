@@ -50,4 +50,77 @@ final class PetalAnimation {
 
     return anim
   }
+
+  /**
+   Creates and returns a `CAAnimation` object that allow the receiver to scale up or down.
+
+   - parameter from: The scale at the begining.
+   - parameter to: The scale at the end.
+   */
+  class func scaleAnimationFrom(from: CGFloat, to: CGFloat) -> CAAnimation {
+    let scaleAnim                 = CABasicAnimation(keyPath: "transform.scale")
+    scaleAnim.fromValue           = from
+    scaleAnim.toValue             = to
+    scaleAnim.duration            = 0.2
+    scaleAnim.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+    scaleAnim.fillMode            = kCAFillModeForwards
+    scaleAnim.removedOnCompletion = false
+
+    return scaleAnim
+  }
+
+  /**
+   Creates and returns a `CAAnimation` object that allow the receiver to rotate.
+
+   - parameter duration: The basic duration of the animation, in seconds.
+   - parameter beginTime: The begin time of the receiver in relation to its parent object.
+   */
+  class func rotationAnimationWithDuration(duration: NSTimeInterval, beginTime: CFTimeInterval) -> CAAnimation {
+    let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+
+    rotationAnimation.fromValue   = 0
+    rotationAnimation.toValue     = CGFloat(M_PI * 2)
+    rotationAnimation.duration    = duration
+    rotationAnimation.repeatCount = HUGE
+    rotationAnimation.beginTime   = beginTime
+
+    return rotationAnimation
+  }
+
+  class func addMorphinAnimationForPetal(petal: CAShapeLayer, pistil: CAShapeLayer, duration: NSTimeInterval, beginTime: CFTimeInterval, forPetalAt index: UInt, petalCount: Double, constraintInBounds bounds: CGRect) {
+    let morphingDuration = duration / 4
+    let morphingMod      = petalCount / 4
+
+    let timeOffset     = beginTime + (morphingDuration / morphingMod) * (Double(index) % morphingMod)
+    let configurations = [
+      (layer: petal, values: [0.8, 1, 0.8].map({ pathForPetalAt(index, radiusRatio: $0, petalCount: petalCount, constraintInBounds: bounds) })),
+      (layer: pistil, values: [0.2, 0.4, 0.2].map ({ pathForPetalAt(index, radiusRatio: $0, angleOffset: CGFloat(M_PI), petalCount: petalCount, constraintInBounds: bounds) }))
+    ]
+
+    for configuration in configurations {
+      if configuration.layer.animationForKey("morphing") == nil {
+        let anim    = PetalAnimation.animationWithDuration(morphingDuration, beginTime: beginTime, timeOffset: timeOffset)
+        anim.values = configuration.values
+
+        configuration.layer.addAnimation(anim, forKey: "morphing")
+      }
+    }
+  }
+
+  class func pathForPetalAt(index: UInt, radiusRatio: CGFloat, angleOffset: CGFloat = 0, petalCount: Double, constraintInBounds bounds: CGRect) -> CGPath {
+    let center     = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+    let startAngle = angleOffset + CGFloat(M_PI * 2 / petalCount) * CGFloat(index)
+    let endAngle   = angleOffset + CGFloat(M_PI * 2 / petalCount) * CGFloat(index + 1)
+    let radius     = min(bounds.width / 2, bounds.height / 2) * radiusRatio
+
+    return petalPathAtCenter(center, radius: radius, startAngle: startAngle, endAngle: endAngle)
+  }
+
+  class func petalPathAtCenter(center: CGPoint, radius: CGFloat, startAngle: CGFloat, endAngle: CGFloat) -> CGPath {
+    let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+    path.addLineToPoint(center)
+    path.closePath()
+
+    return path.CGPath
+  }
 }

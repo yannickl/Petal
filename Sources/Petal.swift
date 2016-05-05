@@ -158,36 +158,44 @@ import QuartzCore
     let beginTime = CACurrentMediaTime()
 
     if layer.animationForKey("rotation") == nil {
-      let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-
-      rotationAnimation.fromValue   = 0
-      rotationAnimation.toValue     = CGFloat(M_PI * 2)
-      rotationAnimation.duration    = rotationDuration
-      rotationAnimation.repeatCount = HUGE
-      rotationAnimation.beginTime   = beginTime
-
-      layer.addAnimation(rotationAnimation, forKey: "rotation")
+      addRotationAnimationAtTime(beginTime)
     }
 
+    for i in 0 ..< petalCount {
+      addMorphinAnimationAtTime(beginTime, forPetalAt: i)
+    }
+  }
+
+  func addRotationAnimationAtTime(time: CFTimeInterval) {
+    let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+
+    rotationAnimation.fromValue   = 0
+    rotationAnimation.toValue     = CGFloat(M_PI * 2)
+    rotationAnimation.duration    = rotationDuration
+    rotationAnimation.repeatCount = HUGE
+    rotationAnimation.beginTime   = time
+
+    layer.addAnimation(rotationAnimation, forKey: "rotation")
+  }
+
+  func addMorphinAnimationAtTime(time: CFTimeInterval, forPetalAt index: UInt) {
     let morphingDuration = rotationDuration / 4
     let morphingMod      = Double(petalCount) / 4
 
-    for i in 0 ..< petalCount {
-      let timeOffset = beginTime + (morphingDuration / morphingMod) * (Double(i) % morphingMod)
+    let timeOffset = time + (morphingDuration / morphingMod) * (Double(index) % morphingMod)
 
-      let petalAnim    = PetalAnimation.animationWithDuration(morphingDuration, beginTime: beginTime, timeOffset: timeOffset)
-      petalAnim.values = [0.8, 1, 0.8].map { pathForPetalAt(i, radiusRatio: $0) }
+    let petalAnim    = PetalAnimation.animationWithDuration(morphingDuration, beginTime: time, timeOffset: timeOffset)
+    petalAnim.values = [0.8, 1, 0.8].map { pathForPetalAt(index, radiusRatio: $0) }
 
-      let pistilAnim    = PetalAnimation.animationWithDuration(morphingDuration, beginTime: beginTime, timeOffset: timeOffset)
-      pistilAnim.values = [0.2, 0.4, 0.2].map { pathForPetalAt(i, radiusRatio: $0, angleOffset: CGFloat(M_PI)) }
+    let pistilAnim    = PetalAnimation.animationWithDuration(morphingDuration, beginTime: time, timeOffset: timeOffset)
+    pistilAnim.values = [0.2, 0.4, 0.2].map { pathForPetalAt(index, radiusRatio: $0, angleOffset: CGFloat(M_PI)) }
 
-      if petals[Int(i)].animationForKey("morphing") == nil {
-        petals[Int(i)].addAnimation(petalAnim, forKey: "morphing")
-      }
+    if petals[Int(index)].animationForKey("morphing") == nil {
+      petals[Int(index)].addAnimation(petalAnim, forKey: "morphing")
+    }
 
-      if pistils[Int(i)].animationForKey("morphing") == nil {
-        pistils[Int(i)].addAnimation(pistilAnim, forKey: "morphing")
-      }
+    if pistils[Int(index)].animationForKey("morphing") == nil {
+      pistils[Int(index)].addAnimation(pistilAnim, forKey: "morphing")
     }
   }
 
@@ -241,19 +249,7 @@ import QuartzCore
     pistils.removeAll()
 
     for i in 0 ..< petalCount {
-      let petalLayer         = CAShapeLayer()
-      petalLayer.fillColor   = colors[Int(i) % colors.count].CGColor
-      petalLayer.strokeColor = colors[Int(i) % colors.count].CGColor
-
-      let pistilLayer         = CAShapeLayer()
-      pistilLayer.fillColor   = colors[Int(i) % colors.count].CGColor
-      pistilLayer.strokeColor = colors[Int(i) % colors.count].CGColor
-
-      petals.append(petalLayer)
-      pistils.append(pistilLayer)
-
-      layer.addSublayer(petalLayer)
-      layer.addSublayer(pistilLayer)
+      setupPetalAndPistalAt(i)
     }
 
     layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -266,5 +262,21 @@ import QuartzCore
       layer.timeOffset = CACurrentMediaTime()
       layer.speed      = 0
     }
+  }
+
+  func setupPetalAndPistalAt(index: UInt) {
+    let petalLayer         = CAShapeLayer()
+    petalLayer.fillColor   = colors[Int(index) % colors.count].CGColor
+    petalLayer.strokeColor = colors[Int(index) % colors.count].CGColor
+
+    let pistilLayer         = CAShapeLayer()
+    pistilLayer.fillColor   = colors[Int(index) % colors.count].CGColor
+    pistilLayer.strokeColor = colors[Int(index) % colors.count].CGColor
+
+    petals.append(petalLayer)
+    pistils.append(pistilLayer)
+
+    layer.addSublayer(petalLayer)
+    layer.addSublayer(pistilLayer)
   }
 }

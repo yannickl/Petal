@@ -19,12 +19,12 @@ class ViewController: UIViewController {
 
   @IBAction func startAction(sender: AnyObject) {
     if !petal.animating {
-      startButton.setTitle("Stop", forState: UIControlState.Normal)
+      startButton.setTitle("Stop", forState: .Normal)
 
       petal.startAnimating()
     }
     else {
-      startButton.setTitle("Start", forState: UIControlState.Normal)
+      startButton.setTitle("Start", forState: .Normal)
       
       petal.stopAnimating()
     }
@@ -34,10 +34,10 @@ class ViewController: UIViewController {
     petal.hidesWhenStopped = !petal.hidesWhenStopped
 
     if petal.hidesWhenStopped {
-      showPetalWhenStoppedButton.setTitle("Show When Stopped", forState: UIControlState.Normal)
+      showPetalWhenStoppedButton.setTitle("Show When Stopped", forState: .Normal)
     }
     else {
-      showPetalWhenStoppedButton.setTitle("Hide When Stopped", forState: UIControlState.Normal)
+      showPetalWhenStoppedButton.setTitle("Hide When Stopped", forState: .Normal)
     }
   }
 }

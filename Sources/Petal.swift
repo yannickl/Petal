@@ -55,7 +55,7 @@ import QuartzCore
   /**
    The colors of the petals. They are displayed sequentially.
    */
-  @IBInspectable public var colors: [UIColor] = [
+  @IBInspectable public var colors = [
     UIColor(red: 72/255, green: 178/255, blue: 197/255, alpha: 1),
     UIColor(red: 112/255, green: 184/255, blue: 197/255, alpha: 1),
     UIColor(red: 56/255, green: 111/255, blue: 121/255, alpha: 1),
@@ -85,14 +85,14 @@ import QuartzCore
 
   true if the receiver is animating, otherwise false.
   */
-  public private(set) var animating: Bool = false
+  public private(set) var animating = false
 
   /**
    A Boolean value that controls whether the receiver is hidden when the animation is stopped.
 
    If the value of this property is true (the default), the receiver dismiss its petals when receiver is not animating. If the hidesWhenStopped property is false, the receiver is not hidden when animation stops. You stop an animating progress indicator with the stopAnimating method.
    */
-  @IBInspectable public var hidesWhenStopped: Bool = true {
+  @IBInspectable public var hidesWhenStopped = true {
     didSet {
       if !animating {
         setupLayers()
@@ -192,7 +192,7 @@ import QuartzCore
     pistils.removeAll()
 
     for i in 0 ..< petalCount {
-      setupPetalAndPistalAt(i)
+      setupPetalAndPistal(atIndex: i)
     }
 
     layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -207,14 +207,16 @@ import QuartzCore
     }
   }
 
-  func setupPetalAndPistalAt(index: UInt) {
+  func setupPetalAndPistal(atIndex index: UInt) {
+    let color = colors[Int(index) % colors.count].CGColor
+  
     let petalLayer         = CAShapeLayer()
-    petalLayer.fillColor   = colors[Int(index) % colors.count].CGColor
-    petalLayer.strokeColor = colors[Int(index) % colors.count].CGColor
+    petalLayer.fillColor   = color
+    petalLayer.strokeColor = color
 
     let pistilLayer         = CAShapeLayer()
-    pistilLayer.fillColor   = colors[Int(index) % colors.count].CGColor
-    pistilLayer.strokeColor = colors[Int(index) % colors.count].CGColor
+    pistilLayer.fillColor   = color
+    pistilLayer.strokeColor = color
 
     petals.append(petalLayer)
     pistils.append(pistilLayer)

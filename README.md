@@ -66,7 +66,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 use_frameworks!
-pod 'Petal', '~> 1.1.0'
+pod 'Petal', '~> 1.1.1'
 ```
 
 Install into your project:
@@ -97,7 +97,7 @@ $ brew install carthage
 To integrate `Petal` into your Xcode project using Carthage, specify it in your `Cartfile` file:
 
 ```ogdl
-github "yannickl/Petal" >= 1.1.0
+github "yannickl/Petal" >= 1.1.1
 ```
 
 #### Swift Package Manager

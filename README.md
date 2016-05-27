@@ -107,7 +107,6 @@ import PackageDescription
 
 let package = Package(
     name: "YOUR_PROJECT_NAME",
-    targets: [],
     dependencies: [
         .Package(url: "https://github.com/yannickl/Petal.git", versions: "1.0.1" ..< Version.max)
     ]

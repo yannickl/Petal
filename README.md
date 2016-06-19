@@ -48,7 +48,7 @@ To go further, take a look at the documentation and the example project.
 
 ## Installation
 
-#### CocoaPods
+### CocoaPods
 
 Install CocoaPods if not already available:
 
@@ -83,7 +83,7 @@ $ open MyProject.xcworkspace
 
 You can now `import Petal` framework into your files.
 
-#### Carthage
+### Carthage
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
 
@@ -100,7 +100,7 @@ To integrate `Petal` into your Xcode project using Carthage, specify it in your 
 github "yannickl/Petal" >= 1.1.1
 ```
 
-#### Swift Package Manager
+### Swift Package Manager
 You can use [The Swift Package Manager](https://swift.org/package-manager) to install `Petal` by adding the proper description to your `Package.swift` file:
 ```swift
 import PackageDescription
@@ -115,7 +115,7 @@ let package = Package(
 
 Note that the [Swift Package Manager](https://swift.org/package-manager) is still in early design and development, for more infomation checkout its [GitHub Page](https://github.com/apple/swift-package-manager)
 
-#### Manually
+### Manually
 
 [Download](https://github.com/YannickL/Petal/archive/master.zip) the project and copy the `Source` folder into your project to use it in.
 

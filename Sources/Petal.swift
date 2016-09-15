@@ -85,7 +85,7 @@ import QuartzCore
 
   true if the receiver is animating, otherwise false.
   */
-  public private(set) var animating = false
+  public fileprivate(set) var animating = false
 
   /**
    A Boolean value that controls whether the receiver is hidden when the animation is stopped.
@@ -126,7 +126,7 @@ import QuartzCore
 
       let scaleAnimation = PetalAnimation.scaleAnimationFrom(0, to: 1)
 
-      layer.addAnimation(scaleAnimation, forKey: "scale")
+      layer.add(scaleAnimation, forKey: "scale")
     }
 
     prepareAnimations()
@@ -143,14 +143,14 @@ import QuartzCore
     }
 
     if !hidesWhenStopped {
-      let pausedTime   = layer.convertTime(CACurrentMediaTime(), fromLayer: nil)
+      let pausedTime   = layer.convertTime(CACurrentMediaTime(), from: nil)
       layer.speed      = 0
       layer.timeOffset = pausedTime
     }
     else {
       let scaleAnimation = PetalAnimation.scaleAnimationFrom(1, to: 0)
 
-      layer.addAnimation(scaleAnimation, forKey: "scale")
+      layer.add(scaleAnimation, forKey: "scale")
     }
 
     animating = false
@@ -161,10 +161,10 @@ import QuartzCore
   func prepareAnimations() {
     let beginTime = CACurrentMediaTime()
 
-    if layer.animationForKey("rotation") == nil {
+    if layer.animation(forKey: "rotation") == nil {
       let rotationAnimation = PetalAnimation.rotationAnimationWithDuration(rotationDuration, beginTime: beginTime)
 
-      layer.addAnimation(rotationAnimation, forKey: "rotation")
+      layer.add(rotationAnimation, forKey: "rotation")
     }
 
     for i in 0 ..< petalCount {
@@ -198,7 +198,7 @@ import QuartzCore
     layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
     if !hidesWhenStopped {
-      layer.removeAnimationForKey("scale")
+      layer.removeAnimation(forKey: "scale")
       
       prepareAnimations()
       
@@ -208,7 +208,7 @@ import QuartzCore
   }
 
   func setupPetalAndPistal(atIndex index: UInt) {
-    let color = colors[Int(index) % colors.count].CGColor
+    let color = colors[Int(index) % colors.count].cgColor
   
     let petalLayer         = CAShapeLayer()
     petalLayer.fillColor   = color

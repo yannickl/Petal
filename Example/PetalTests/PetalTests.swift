@@ -49,16 +49,16 @@ class PetalTests: XCTestCase {
     let petalView = Petal()
 
     petalView.petalCount = 12
-    petalView.colors     = [.redColor(), .blueColor()]
+    petalView.colors     = [.red, .blue]
 
-    for (i, petal) in petalView.petals.enumerate() {
-      XCTAssertTrue(CGColorEqualToColor(petal.fillColor, petalView.colors[i % petalView.colors.count].CGColor))
+    for (i, petal) in petalView.petals.enumerated() {
+      XCTAssertEqual(petal.fillColor, petalView.colors[i % petalView.colors.count].cgColor)
     }
 
-    petalView.colors = [.redColor(), .blueColor(), .greenColor()]
+    petalView.colors = [.red, .blue, .green]
 
-    for (i, petal) in petalView.petals.enumerate() {
-      XCTAssertTrue(CGColorEqualToColor(petal.fillColor, petalView.colors[i % petalView.colors.count].CGColor))
+    for (i, petal) in petalView.petals.enumerated() {
+      XCTAssertEqual(petal.fillColor, petalView.colors[i % petalView.colors.count].cgColor)
     }
   }
 }

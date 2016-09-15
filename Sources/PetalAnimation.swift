@@ -37,15 +37,15 @@ final class PetalAnimation {
    - parameter beginTime: The begin time of the receiver in relation to its parent object.
    - parameter timeOffset: Additional time offset in active local time.
    */
-  class func animationWithDuration(_ duration: CFTimeInterval, beginTime: CFTimeInterval, timeOffset: CFTimeInterval) -> CAKeyframeAnimation {
+  class func animation(withDuration duration: CFTimeInterval, beginTime: CFTimeInterval, timeOffset: CFTimeInterval) -> CAKeyframeAnimation {
     let anim = CAKeyframeAnimation(keyPath: "path")
 
-    anim.keyTimes            = [0, 0.5, 1]
-    anim.repeatCount         = HUGE
-    anim.duration            = duration
-    anim.beginTime           = beginTime
-    anim.timeOffset          = timeOffset
-    anim.fillMode            = kCAFillModeForwards
+    anim.keyTimes              = [0, 0.5, 1]
+    anim.repeatCount           = HUGE
+    anim.duration              = duration
+    anim.beginTime             = beginTime
+    anim.timeOffset            = timeOffset
+    anim.fillMode              = kCAFillModeForwards
     anim.isRemovedOnCompletion = false
 
     return anim
@@ -57,13 +57,13 @@ final class PetalAnimation {
    - parameter from: The scale at the begining.
    - parameter to: The scale at the end.
    */
-  class func scaleAnimationFrom(_ from: CGFloat, to: CGFloat) -> CAAnimation {
-    let scaleAnim                 = CABasicAnimation(keyPath: "transform.scale")
-    scaleAnim.fromValue           = from
-    scaleAnim.toValue             = to
-    scaleAnim.duration            = 0.2
-    scaleAnim.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-    scaleAnim.fillMode            = kCAFillModeForwards
+  class func scaleAnimation(from: CGFloat, to: CGFloat) -> CAAnimation {
+    let scaleAnim                   = CABasicAnimation(keyPath: "transform.scale")
+    scaleAnim.fromValue             = from
+    scaleAnim.toValue               = to
+    scaleAnim.duration              = 0.2
+    scaleAnim.timingFunction        = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+    scaleAnim.fillMode              = kCAFillModeForwards
     scaleAnim.isRemovedOnCompletion = false
 
     return scaleAnim
@@ -75,7 +75,7 @@ final class PetalAnimation {
    - parameter duration: The basic duration of the animation, in seconds.
    - parameter beginTime: The begin time of the receiver in relation to its parent object.
    */
-  class func rotationAnimationWithDuration(_ duration: TimeInterval, beginTime: CFTimeInterval) -> CAAnimation {
+  class func rotationAnimation(withDuration duration: TimeInterval, beginTime: CFTimeInterval) -> CAAnimation {
     let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
 
     rotationAnimation.fromValue   = 0
@@ -87,19 +87,19 @@ final class PetalAnimation {
     return rotationAnimation
   }
 
-  class func addMorphinAnimationForPetal(_ petal: CAShapeLayer, pistil: CAShapeLayer, duration: TimeInterval, beginTime: CFTimeInterval, forPetalAt index: UInt, petalCount: Double, constraintInBounds bounds: CGRect) {
+  class func addMorphinAnimation(petal: (Int, (petal: CAShapeLayer, pistil: CAShapeLayer)), duration: TimeInterval, beginTime: CFTimeInterval, petalCount: Double, constraintInBounds bounds: CGRect) {
     let morphingDuration = duration / 4
     let morphingMod      = petalCount / 4
 
-    let timeOffset     = beginTime + (morphingDuration / morphingMod) * (Double(index).truncatingRemainder(dividingBy: morphingMod))
+    let timeOffset     = beginTime + (morphingDuration / morphingMod) * (Double(petal.0).truncatingRemainder(dividingBy: morphingMod))
     let configurations = [
-      (layer: petal, values: [0.8, 1, 0.8].map({ pathForPetalAt(index, radiusRatio: $0, petalCount: petalCount, constraintInBounds: bounds) })),
-      (layer: pistil, values: [0.2, 0.4, 0.2].map ({ pathForPetalAt(index, radiusRatio: $0, angleOffset: CGFloat(M_PI), petalCount: petalCount, constraintInBounds: bounds) }))
+      (layer: petal.1.petal, values: [0.8, 1, 0.8].map({ pathForPetalAt(petal.0, radiusRatio: $0, petalCount: petalCount, constraintInBounds: bounds) })),
+      (layer: petal.1.pistil, values: [0.2, 0.4, 0.2].map ({ pathForPetalAt(petal.0, radiusRatio: $0, angleOffset: CGFloat(M_PI), petalCount: petalCount, constraintInBounds: bounds) }))
     ]
 
     for configuration in configurations {
       if configuration.layer.animation(forKey: "morphing") == nil {
-        let anim    = PetalAnimation.animationWithDuration(morphingDuration, beginTime: beginTime, timeOffset: timeOffset)
+        let anim    = PetalAnimation.animation(withDuration: morphingDuration, beginTime: beginTime, timeOffset: timeOffset)
         anim.values = configuration.values
 
         configuration.layer.add(anim, forKey: "morphing")
@@ -107,7 +107,7 @@ final class PetalAnimation {
     }
   }
 
-  class func pathForPetalAt(_ index: UInt, radiusRatio: CGFloat, angleOffset: CGFloat = 0, petalCount: Double, constraintInBounds bounds: CGRect) -> CGPath {
+  class func pathForPetalAt(_ index: Int, radiusRatio: CGFloat, angleOffset: CGFloat = 0, petalCount: Double, constraintInBounds bounds: CGRect) -> CGPath {
     let center     = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
     let startAngle = angleOffset + CGFloat(M_PI * 2 / petalCount) * CGFloat(index)
     let endAngle   = angleOffset + CGFloat(M_PI * 2 / petalCount) * CGFloat(index + 1)

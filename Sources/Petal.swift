@@ -44,8 +44,8 @@ import QuartzCore
   // MARK: - Setting the Appearence
 
   /**
-  The petal count.
-  */
+   The petal count.
+   */
   @IBInspectable public var petalCount: UInt = 15 {
     didSet {
       setupLayers()
@@ -70,8 +70,8 @@ import QuartzCore
   // MARK: - Managing the Petal Behavior
 
   /**
-  The rotation duration in seconds.
-  */
+   The rotation duration in seconds.
+   */
   @IBInspectable public var rotationDuration: Double = 12 {
     didSet {
       setupLayers()
@@ -81,11 +81,11 @@ import QuartzCore
   // MARK: - Managing a Petal
 
   /**
-  Flag to know whether the receiver is animating.
+   Flag to know whether the receiver is animating.
 
-  true if the receiver is animating, otherwise false.
-  */
-  public fileprivate(set) var animating = false
+   true if the receiver is animating, otherwise false.
+   */
+  public fileprivate(set) var isAnimating = false
 
   /**
    A Boolean value that controls whether the receiver is hidden when the animation is stopped.
@@ -94,7 +94,7 @@ import QuartzCore
    */
   @IBInspectable public var hidesWhenStopped = true {
     didSet {
-      if !animating {
+      if !isAnimating {
         setupLayers()
       }
     }
@@ -106,11 +106,11 @@ import QuartzCore
    When the progress indicator is animated, the petals grow, shrink and rotate to indicate indeterminate progress. The indicator is animated until stopAnimating is called.
    */
   public func startAnimating() {
-    guard !animating else {
+    guard !isAnimating else {
       return
     }
 
-    animating = true
+    isAnimating = true
 
     if layer.speed == 0 {
       let timeSincePause = CACurrentMediaTime() - layer.timeOffset
@@ -124,7 +124,7 @@ import QuartzCore
       layer.timeOffset = 0
       layer.beginTime  = 0
 
-      let scaleAnimation = PetalAnimation.scaleAnimationFrom(0, to: 1)
+      let scaleAnimation = PetalAnimation.scaleAnimation(from: 0, to: 1)
 
       layer.add(scaleAnimation, forKey: "scale")
     }
@@ -138,7 +138,7 @@ import QuartzCore
    Call this method to stop the animation of the petal started with a call to startAnimating. When animating is stopped, the indicator is hidden.
    */
   public func stopAnimating() {
-    guard animating else {
+    guard isAnimating else {
       return
     }
 
@@ -148,12 +148,12 @@ import QuartzCore
       layer.timeOffset = pausedTime
     }
     else {
-      let scaleAnimation = PetalAnimation.scaleAnimationFrom(1, to: 0)
+      let scaleAnimation = PetalAnimation.scaleAnimation(from: 1, to: 0)
 
       layer.add(scaleAnimation, forKey: "scale")
     }
 
-    animating = false
+    isAnimating = false
   }
 
   // MARK: - Animating Petals
@@ -162,34 +162,29 @@ import QuartzCore
     let beginTime = CACurrentMediaTime()
 
     if layer.animation(forKey: "rotation") == nil {
-      let rotationAnimation = PetalAnimation.rotationAnimationWithDuration(rotationDuration, beginTime: beginTime)
+      let rotationAnimation = PetalAnimation.rotationAnimation(withDuration: rotationDuration, beginTime: beginTime)
 
       layer.add(rotationAnimation, forKey: "rotation")
     }
 
-    for i in 0 ..< petalCount {
-      PetalAnimation.addMorphinAnimationForPetal(petals[Int(i)], pistil: pistils[Int(i)], duration: rotationDuration, beginTime: beginTime, forPetalAt: i, petalCount: Double(petals.count), constraintInBounds: bounds)
+    for petal in petals.enumerated() {
+      PetalAnimation.addMorphinAnimation(petal: petal, duration: rotationDuration, beginTime: beginTime, petalCount: Double(petals.count), constraintInBounds: bounds)
     }
   }
 
   // MARK: - Creating Petals
 
-  var petals: [CAShapeLayer]  = []
-  var pistils: [CAShapeLayer] = []
+  var petals: [(petal: CAShapeLayer, pistil: CAShapeLayer)] = []
 
   func setupLayers() {
     layer.removeAllAnimations()
 
     for petal in petals {
-      petal.removeFromSuperlayer()
-    }
-
-    for pistil in pistils {
-      pistil.removeFromSuperlayer()
+      petal.0.removeFromSuperlayer()
+      petal.1.removeFromSuperlayer()
     }
 
     petals.removeAll()
-    pistils.removeAll()
 
     for i in 0 ..< petalCount {
       setupPetalAndPistal(atIndex: i)
@@ -199,9 +194,9 @@ import QuartzCore
 
     if !hidesWhenStopped {
       layer.removeAnimation(forKey: "scale")
-      
+
       prepareAnimations()
-      
+
       layer.timeOffset = CACurrentMediaTime()
       layer.speed      = 0
     }
@@ -209,7 +204,7 @@ import QuartzCore
 
   func setupPetalAndPistal(atIndex index: UInt) {
     let color = colors[Int(index) % colors.count].cgColor
-  
+
     let petalLayer         = CAShapeLayer()
     petalLayer.fillColor   = color
     petalLayer.strokeColor = color
@@ -217,11 +212,10 @@ import QuartzCore
     let pistilLayer         = CAShapeLayer()
     pistilLayer.fillColor   = color
     pistilLayer.strokeColor = color
-
-    petals.append(petalLayer)
-    pistils.append(pistilLayer)
-
+    
     layer.addSublayer(petalLayer)
     layer.addSublayer(pistilLayer)
+    
+    petals.append((petalLayer, pistilLayer))
   }
 }

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,11 +16,10 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STR-hp-Ih9" customClass="Petal" customModule="Petal" customModuleProvider="target">
-                                <rect key="frame" x="150" y="150" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="ECo-P3-K8d"/>
                                     <constraint firstAttribute="width" secondItem="STR-hp-Ih9" secondAttribute="height" multiplier="1:1" id="asG-Q6-c87"/>
@@ -29,7 +29,6 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kN-Fz-yRQ">
-                                <rect key="frame" x="261" y="482" width="78" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="98x-vM-jF6"/>
                                     <constraint firstAttribute="width" constant="78" id="W80-BG-kcG"/>
@@ -40,18 +39,17 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8I-dQ-1BK">
-                                <rect key="frame" x="218" y="520" width="165" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="165" id="89P-dr-kFu"/>
                                     <constraint firstAttribute="height" constant="30" id="DeV-JC-Gjj"/>
                                 </constraints>
-                                <state key="normal" title="Show When Stopped"/>
+                                <state key="normal" title="Hide When Stopped"/>
                                 <connections>
                                     <action selector="toggleShowPetalWhenStoppedAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x3x-xE-Fzm"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="STR-hp-Ih9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9l2-05-DG0"/>
                             <constraint firstItem="9kN-Fz-yRQ" firstAttribute="top" secondItem="STR-hp-Ih9" secondAttribute="bottom" constant="32" id="DMd-FK-PHv"/>

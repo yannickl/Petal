@@ -41,6 +41,12 @@ import QuartzCore
     setupLayers()
   }
 
+  public override func layoutSubviews() {
+    super.layoutSubviews()
+
+    setupLayers()
+  }
+
   // MARK: - Setting the Appearence
 
   /**
@@ -55,7 +61,7 @@ import QuartzCore
   /**
    The colors of the petals. They are displayed sequentially.
    */
-  @IBInspectable public var colors = [
+  public var colors: [UIColor] = [
     UIColor(red: 72/255, green: 178/255, blue: 197/255, alpha: 1),
     UIColor(red: 112/255, green: 184/255, blue: 197/255, alpha: 1),
     UIColor(red: 56/255, green: 111/255, blue: 121/255, alpha: 1),
@@ -92,11 +98,9 @@ import QuartzCore
 
    If the value of this property is true (the default), the receiver dismiss its petals when receiver is not animating. If the hidesWhenStopped property is false, the receiver is not hidden when animation stops. You stop an animating progress indicator with the stopAnimating method.
    */
-  @IBInspectable public var hidesWhenStopped = true {
+  @IBInspectable public var hidesWhenStopped: Bool = true {
     didSet {
-      if !isAnimating {
-        setupLayers()
-      }
+      setupLayers()
     }
   }
 
@@ -106,9 +110,7 @@ import QuartzCore
    When the progress indicator is animated, the petals grow, shrink and rotate to indicate indeterminate progress. The indicator is animated until stopAnimating is called.
    */
   public func startAnimating() {
-    guard !isAnimating else {
-      return
-    }
+    guard !isAnimating else { return }
 
     isAnimating = true
 
@@ -138,9 +140,7 @@ import QuartzCore
    Call this method to stop the animation of the petal started with a call to startAnimating. When animating is stopped, the indicator is hidden.
    */
   public func stopAnimating() {
-    guard isAnimating else {
-      return
-    }
+    guard isAnimating else { return }
 
     if !hidesWhenStopped {
       let pausedTime   = layer.convertTime(CACurrentMediaTime(), from: nil)
@@ -177,11 +177,15 @@ import QuartzCore
   var petals: [(petal: CAShapeLayer, pistil: CAShapeLayer)] = []
 
   func setupLayers() {
+    guard !isAnimating else { return }
+
     layer.removeAllAnimations()
 
     for petal in petals {
-      petal.0.removeFromSuperlayer()
-      petal.1.removeFromSuperlayer()
+      for layer in [petal.0, petal.1] {
+        layer.removeAllAnimations()
+        layer.removeFromSuperlayer()
+      }
     }
 
     petals.removeAll()
@@ -193,8 +197,6 @@ import QuartzCore
     layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
     if !hidesWhenStopped {
-      layer.removeAnimation(forKey: "scale")
-
       prepareAnimations()
 
       layer.timeOffset = CACurrentMediaTime()

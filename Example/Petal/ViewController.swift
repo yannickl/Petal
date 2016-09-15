@@ -13,10 +13,6 @@ class ViewController: UIViewController {
   @IBOutlet weak var startButton: UIButton!
   @IBOutlet weak var showPetalWhenStoppedButton: UIButton!
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-
   @IBAction func startAction(_ sender: AnyObject) {
     if !petal.isAnimating {
       startButton.setTitle("Stop", for: .normal)

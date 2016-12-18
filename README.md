@@ -8,6 +8,10 @@
 
 Petal is a beautiful activity indicator to show that a task is in progress.
 
+<p align="center">
+    <a href="#usage">Usage</a> • <a href="#installation">Installation</a> • <a href="#contact">Contact</a> • <a href="#license-mit">License</a>
+</p>
+
 ## Usage
 
 At first, import Petal library:

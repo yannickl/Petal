@@ -79,7 +79,7 @@ final class PetalAnimation {
     let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
 
     rotationAnimation.fromValue   = 0
-    rotationAnimation.toValue     = CGFloat(M_PI * 2)
+    rotationAnimation.toValue     = CGFloat.pi * 2
     rotationAnimation.duration    = duration
     rotationAnimation.repeatCount = HUGE
     rotationAnimation.beginTime   = beginTime
@@ -94,7 +94,7 @@ final class PetalAnimation {
     let timeOffset     = beginTime + (morphingDuration / morphingMod) * (Double(petal.0).truncatingRemainder(dividingBy: morphingMod))
     let configurations = [
       (layer: petal.1.petal, values: [0.8, 1, 0.8].map({ pathForPetalAt(petal.0, radiusRatio: $0, petalCount: petalCount, constraintInBounds: bounds) })),
-      (layer: petal.1.pistil, values: [0.2, 0.4, 0.2].map ({ pathForPetalAt(petal.0, radiusRatio: $0, angleOffset: CGFloat(M_PI), petalCount: petalCount, constraintInBounds: bounds) }))
+      (layer: petal.1.pistil, values: [0.2, 0.4, 0.2].map ({ pathForPetalAt(petal.0, radiusRatio: $0, angleOffset: .pi, petalCount: petalCount, constraintInBounds: bounds) }))
     ]
 
     for configuration in configurations {
@@ -109,8 +109,8 @@ final class PetalAnimation {
 
   class func pathForPetalAt(_ index: Int, radiusRatio: CGFloat, angleOffset: CGFloat = 0, petalCount: Double, constraintInBounds bounds: CGRect) -> CGPath {
     let center     = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
-    let startAngle = angleOffset + CGFloat(M_PI * 2 / petalCount) * CGFloat(index)
-    let endAngle   = angleOffset + CGFloat(M_PI * 2 / petalCount) * CGFloat(index + 1)
+    let startAngle = angleOffset + CGFloat(Double.pi * 2 / petalCount) * CGFloat(index)
+    let endAngle   = angleOffset + CGFloat(Double.pi * 2 / petalCount) * CGFloat(index + 1)
     let radius     = min(bounds.width / 2, bounds.height / 2) * radiusRatio
 
     return petalPathAtCenter(center, radius: radius, startAngle: startAngle, endAngle: endAngle)

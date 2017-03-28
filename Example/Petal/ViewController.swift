@@ -13,31 +13,27 @@ class ViewController: UIViewController {
   @IBOutlet weak var startButton: UIButton!
   @IBOutlet weak var showPetalWhenStoppedButton: UIButton!
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-
-  @IBAction func startAction(sender: AnyObject) {
-    if !petal.animating {
-      startButton.setTitle("Stop", forState: .Normal)
+  @IBAction func startAction(_ sender: AnyObject) {
+    if !petal.isAnimating {
+      startButton.setTitle("Stop", for: .normal)
 
       petal.startAnimating()
     }
     else {
-      startButton.setTitle("Start", forState: .Normal)
+      startButton.setTitle("Start", for: .normal)
       
       petal.stopAnimating()
     }
   }
 
-  @IBAction func toggleShowPetalWhenStoppedAction(sender: AnyObject) {
+  @IBAction func toggleShowPetalWhenStoppedAction(_ sender: AnyObject) {
     petal.hidesWhenStopped = !petal.hidesWhenStopped
 
     if petal.hidesWhenStopped {
-      showPetalWhenStoppedButton.setTitle("Show When Stopped", forState: .Normal)
+      showPetalWhenStoppedButton.setTitle("Show When Stopped", for: .normal)
     }
     else {
-      showPetalWhenStoppedButton.setTitle("Hide When Stopped", forState: .Normal)
+      showPetalWhenStoppedButton.setTitle("Hide When Stopped", for: .normal)
     }
   }
 }

@@ -32,33 +32,30 @@ class PetalTests: XCTestCase {
     petalView.petalCount = 12
 
     XCTAssertEqual(petalView.petals.count, 12)
-    XCTAssertEqual(petalView.pistils.count, 12)
 
     petalView.petalCount = 23
 
     XCTAssertEqual(petalView.petals.count, 23)
-    XCTAssertEqual(petalView.pistils.count, 23)
 
     petalView.petalCount = 0
 
     XCTAssertEqual(petalView.petals.count, 0)
-    XCTAssertEqual(petalView.pistils.count, 0)
   }
 
   func testPetalColors() {
     let petalView = Petal()
 
     petalView.petalCount = 12
-    petalView.colors     = [.redColor(), .blueColor()]
+    petalView.colors     = [.red, .blue]
 
-    for (i, petal) in petalView.petals.enumerate() {
-      XCTAssertTrue(CGColorEqualToColor(petal.fillColor, petalView.colors[i % petalView.colors.count].CGColor))
+    for (i, petal) in petalView.petals.enumerated() {
+      XCTAssertEqual(petal.0.fillColor, petalView.colors[i % petalView.colors.count].cgColor)
     }
 
-    petalView.colors = [.redColor(), .blueColor(), .greenColor()]
+    petalView.colors = [.red, .blue, .green]
 
-    for (i, petal) in petalView.petals.enumerate() {
-      XCTAssertTrue(CGColorEqualToColor(petal.fillColor, petalView.colors[i % petalView.colors.count].CGColor))
+    for (i, petal) in petalView.petals.enumerated() {
+      XCTAssertEqual(petal.0.fillColor, petalView.colors[i % petalView.colors.count].cgColor)
     }
   }
 }

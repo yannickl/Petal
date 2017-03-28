@@ -1,9 +1,9 @@
 # Change log
 
 ## [Version 2.0.0](https://github.com/yannickl/Petal/releases/tag/2.0.0)
-Released on 2016-09-15
+Released on 2017-03-28
 
-**Swift 3.0 supports**
+**Swift 3.1 supports**
 
 - [REFACTORING] `isAnimating` instead of `animating`
 

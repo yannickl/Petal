@@ -33,7 +33,7 @@ To update the petal number, the color of each one and the rotation duration use 
 
 ```swift
 petal.petalCount       = 9
-petal.colors           = [.redColor(), .blueColor(), .greenColor()]
+petal.colors           = [.red, .blue, .green]
 petal.rotationDuration = 12
 ```
 
@@ -70,7 +70,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
 use_frameworks!
-pod 'Petal', '~> 1.1.1'
+pod 'Petal', '~> 2'
 ```
 
 Install into your project:
@@ -101,7 +101,7 @@ $ brew install carthage
 To integrate `Petal` into your Xcode project using Carthage, specify it in your `Cartfile` file:
 
 ```ogdl
-github "yannickl/Petal" >= 1.1.1
+github "yannickl/Petal" >= 2.0.0
 ```
 
 ### Swift Package Manager
@@ -112,7 +112,7 @@ import PackageDescription
 let package = Package(
     name: "YOUR_PROJECT_NAME",
     dependencies: [
-        .Package(url: "https://github.com/yannickl/Petal.git", versions: "1.0.1" ..< Version.max)
+        .Package(url: "https://github.com/yannickl/Petal.git", versions: 2 ..< Version.max)
     ]
 )
 ```

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Petal'
-  s.version          = '1.1.1'
+  s.version          = '2.0.0'
   s.license          = 'MIT'
   s.summary          = 'Petal is a beautiful activity indicator to show that a task is in progress'
   s.homepage         = 'https://github.com/yannickl/Petal.git'

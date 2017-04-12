@@ -9,7 +9,7 @@
 Petal is a beautiful activity indicator to show that a task is in progress.
 
 <p align="center">
-    <a href="#usage">Usage</a> • <a href="#installation">Installation</a> • <a href="#contact">Contact</a> • <a href="#license-mit">License</a>
+    <a href="#usage">Usage</a> • <a href="#installation">Installation</a> • <a href="#contribution">Contribution</a> • <a href="#contact">Contact</a> • <a href="#license-mit">License</a>
 </p>
 
 ## Usage
@@ -47,8 +47,6 @@ Have fun! :)
 ### For more information...
 
 To go further, take a look at the documentation and the example project.
-
-*Note: All contributions are welcome*
 
 ## Installation
 
@@ -122,6 +120,10 @@ Note that the [Swift Package Manager](https://swift.org/package-manager) is stil
 ### Manually
 
 [Download](https://github.com/YannickL/Petal/archive/master.zip) the project and copy the `Source` folder into your project to use it in.
+
+## Contribution
+
+Contributions are welcomed and encouraged *♡*.
 
 ## Contact
 

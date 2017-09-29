@@ -9,7 +9,7 @@
 Petal is a beautiful activity indicator to show that a task is in progress.
 
 <p align="center">
-    <a href="#usage">Usage</a> • <a href="#installation">Installation</a> • <a href="#contact">Contact</a> • <a href="#license-mit">License</a>
+    <a href="#usage">Usage</a> • <a href="#installation">Installation</a> • <a href="#contribution">Contribution</a> • <a href="#contact">Contact</a> • <a href="#license-mit">License</a>
 </p>
 
 ## Usage
@@ -47,8 +47,6 @@ Have fun! :)
 ### For more information...
 
 To go further, take a look at the documentation and the example project.
-
-*Note: All contributions are welcome*
 
 ## Installation
 
@@ -123,13 +121,35 @@ Note that the [Swift Package Manager](https://swift.org/package-manager) is stil
 
 [Download](https://github.com/YannickL/Petal/archive/master.zip) the project and copy the `Source` folder into your project to use it in.
 
+## Contribution
+
+Contributions are welcomed and encouraged *♡*.
+
 ## Contact
 
 Yannick Loriot
+ - [https://21.co/yannickl/](https://21.co/yannickl/)
  - [https://twitter.com/yannickloriot](https://twitter.com/yannickloriot)
- - [contact@yannickloriot.com](mailto:contact@yannickloriot.com)
-
 
 ## License (MIT)
 
 Petal is available under the [MIT](https://github.com/yannickl/Petal/blob/master/LICENSE) license.
+
+Copyright (c) 2016-present Yannick Loriot
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

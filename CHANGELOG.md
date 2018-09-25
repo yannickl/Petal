@@ -1,6 +1,11 @@
 # Change log
 
-## Version 3.0.0]
+## [Version 4.0.0](https://github.com/yannickl/Petal/releases/tag/4.0.0)
+Released on 2018-09-25
+
+**Swift 4.2 supports**
+
+## Version 3.0.0
 
 **Swift 4 supports**
 

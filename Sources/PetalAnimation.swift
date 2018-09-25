@@ -45,7 +45,7 @@ final class PetalAnimation {
     anim.duration              = duration
     anim.beginTime             = beginTime
     anim.timeOffset            = timeOffset
-    anim.fillMode              = kCAFillModeForwards
+    anim.fillMode              = CAMediaTimingFillMode.forwards
     anim.isRemovedOnCompletion = false
 
     return anim
@@ -62,8 +62,8 @@ final class PetalAnimation {
     scaleAnim.fromValue             = from
     scaleAnim.toValue               = to
     scaleAnim.duration              = 0.2
-    scaleAnim.timingFunction        = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-    scaleAnim.fillMode              = kCAFillModeForwards
+    scaleAnim.timingFunction        = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
+    scaleAnim.fillMode              = CAMediaTimingFillMode.forwards
     scaleAnim.isRemovedOnCompletion = false
 
     return scaleAnim

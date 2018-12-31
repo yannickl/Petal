@@ -6,7 +6,7 @@
   <img src="http://yannickloriot.com/resources/petal-anim.gif" alt="Petal" width="200"/>
 </p>
 
-❀ Petal is a beautiful activity indicator to show that a task is in progress.
+**❀ Petal** is a beautiful activity indicator to show that a task is in progress.
 
 <p align="center">
     <a href="#requirements">Requirements</a> • <a href="#usage">Usage</a> • <a href="#installation">Installation</a> • <a href="#contribution">Contribution</a> • <a href="#contact">Contact</a> • <a href="#license-mit">License</a>
